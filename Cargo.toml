@@ -1,0 +1,51 @@
+[package]
+name = "autogen_actor"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+resolver = "2"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "autogen_actor"
+path = "src/lib.rs"
+
+
+[[bin]]
+name = "actor_a"
+path = "src/a.rs"
+
+[[bin]]
+name = "actor_b"
+path = "src/b.rs"
+
+[[bin]]
+name = "auth"
+path = "src/auth_handshake.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ractor = { version = "0.14.7", features = ["cluster", "blanket_serde"] }
+ractor_cluster = "0.14.7"
+tokio = { version = "1", features = [
+    "rt",
+    "time",
+    "sync",
+    "macros",
+    "rt-multi-thread",
+    "signal",
+    "tracing",
+] }
+tracing = "0.1"
+tracing-glog = "0.4"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { version = "1.0", features = ["derive"] }
+bincode = "1.3"
