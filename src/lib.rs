@@ -1,5 +1,6 @@
 pub mod actor_a;
 pub mod actor_b;
+pub mod message;
 
 use ractor::{ActorRef};
 use serde::{Deserialize, Serialize};

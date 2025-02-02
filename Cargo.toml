@@ -10,15 +10,6 @@ crate-type = ["cdylib", "rlib"]
 name = "autogen_actor"
 path = "src/lib.rs"
 
-
-[[bin]]
-name = "actor_a"
-path = "src/a.rs"
-
-[[bin]]
-name = "actor_b"
-path = "src/b.rs"
-
 [[bin]]
 name = "auth"
 path = "src/auth_handshake.rs"
@@ -49,3 +40,4 @@ tracing-glog = "0.4"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 serde = { version = "1.0", features = ["derive"] }
 bincode = "1.3"
+rustls = { version = "0.23", default-features = false, features = ["logging", "std", "tls12", "ring"] }
